@@ -1,0 +1,19 @@
+<!-- player is defined in the getter  -->
+<h1>Current Player: {{ player }}</h1>
+
+<button nbButton outline status="danger" (click)="newGame()">
+  Start new Game
+</button>
+
+<!-- conditional template - use structural directive -->
+<h2 *ngIf="winner">Player {{ winner }} won the game!</h2>
+
+<main>
+  <!-- pass val to child app component  -->
+  <app-square
+    *ngFor="let val of squares; let i = index"
+    [value]="val"
+    (click)="makeMove(i)"
+  >
+  </app-square>
+</main>
